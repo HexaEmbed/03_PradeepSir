@@ -1,276 +1,151 @@
-# 03_PradeepSir
-RealTime Raspberry Pi Health Monitor System
-
-# 📡 Raspberry Pi CPU Temperature Monitoring (InfluxDB + Grafana + Cloud)
+# 🍓 Raspberry Pi Setup Guide (Flash SD Card + India Configuration)
 
 ## 🚀 Overview
 
-This project monitors **CPU temperature** from a Raspberry Pi in real-time and visualizes it using Grafana dashboards.
+This guide walks you through preparing a fresh Raspberry Pi setup:
 
-It supports:
+* Flash Raspberry Pi OS to SD card
+* Enable SSH (headless access)
+* Configure Internet (Wi-Fi or Ethernet)
+---
 
-* ✅ Local monitoring (InfluxDB + Grafana on Raspberry Pi)
-* ☁️ Cloud monitoring (InfluxDB Cloud free tier)
-* 🔁 Optional dual-write (local + cloud)
+## 📦 Requirements
+
+* Raspberry Pi board
+* MicroSD card (≥16GB recommended)
+* SD card reader
+* Laptop/PC
+* Internet connection
 
 ---
 
-## 🧠 Architecture
+## 💿 Step 1: Download Raspberry Pi OS
 
+Download the official tool:
+
+```text
+https://www.raspberrypi.com/software/
 ```
-Raspberry Pi
-   ├── CPU Temperature (vcgencmd)
-   ├── Python / Telegraf
-   ↓
-InfluxDB (Local + / or Cloud)
-   ↓
-Grafana Dashboard (Local / Remote)
+---
+
+## ⚙️ Step 2: Flash OS to SD Card
+
+1. Insert SD card into your computer
+2. Open Raspberry Pi Imager
+3. Click **Choose OS**
+
+   * Select: *Raspberry Pi OS (32-bit)*
+4. Click **Choose Storage**
+
+   * Select your SD card
+5. After Flashing completes, Boot Raspberry Pi
+
+   * Insert SD card into Raspberry Pi
+   * Connect PC Monitor and Keyboard to Raspberry Pi
+   * Power it ON
+   * Wait ~1–2 minutes for first boot
+   * Enter User Name: eg: debian
+   * Enter Password: eg: password@000
+---
+
+## 🔐 Enable SSH
+
+* ✅ Enable SSH
+* Enter the command:
+  ```text
+  sudo raspi-config
+  ```
+* Navigate to Interface Options (or Interfacing Options) using the arrow keys.
+* Select SSH, then choose Yes to enable it.
+* Select Finish to exit.
+
+---
+
+## 📶 Configure Internet (Wi-Fi or Ethernet)
+
+* ✅ Connect Internet powered Ethernet Cable or Configure wireless LAN
+* Open terminal and run:
+  ```text
+  sudo raspi-config
+  ```
+* Navigate to System Options > Wireless LAN.
+* Select your country, enter SSID, and password.
+---
+
+## 🌐 Step 3: Find Raspberry Pi IP
+
+Check from your router OR use:
+
+```bash
+ifconfig
+```
+or
+```bash
+ping raspberrypi.local
 ```
 
 ---
 
-## ⚙️ Requirements
+## 🔑 Step 4: Connect via SSH
 
-### Hardware
+From your PC:
 
-* Raspberry Pi (any model with network access)
+```bash
+ssh debian@raspberrypi.local
+```
 
-### Software
+or using IP:
 
-* Python 3
-* InfluxDB (local or cloud)
-* Grafana
-* (Optional) Telegraf
+```bash
+ssh pi@192.168.x.x
+```
 
 ---
-## ⚙️ Installing InfluxDB on Raspberry Pi
-### 1. Update your system
+
+## 🧰 Optional Manual Setup (if needed)
+
+### Set timezone manually
+
+```bash
+sudo raspi-config
+```
+
+Go to:
+
+```text
+Localisation Options → Timezone → Asia → Kolkata
+```
+
+---
+
+### Set keyboard layout
+
+```bash
+sudo raspi-config
+```
+
+```text
+Localisation Options → Keyboard → English (India) or US
+```
+
+---
+
+## 🚀 Next Steps
+
+* Install updates:
+
+```bash
 sudo apt update && sudo apt upgrade
-### 2. Install InfluxDB (v1.x – easier on Pi)
-```bash
-wget https://dl.influxdata.com/influxdb/releases/influxdb_1.8.10_armhf.deb
-sudo dpkg -i influxdb_1.8.10_armhf.deb
-```
-### 3. Start the service
-```bash
-sudo systemctl start influxdb
-sudo systemctl enable influxdb
-```
-### 4. Open InfluxDB CLI
-```bash
-influx
-```
----
-
-## 🔥 Step 1: Read CPU Temperature
-
-```bash
-vcgencmd measure_temp
 ```
 
-Example:
+* Install tools:
 
-```
-temp=52.3'C
-```
+  * InfluxDB -> Refer: INFLUXDB.md
+  * Grafana -> Refer: GRAFANA.md
+  * Tailscale -> Refer: TAILSCALE_VPN.md
 
 ---
 
-## 🐍 Step 2: Python Script (Push Data)
+## 🧑‍💻 Author: Balai Pandiyan
 
-Install dependency:
-
-```bash
-pip3 install influxdb influxdb-client
-```
-
-### 📄 `cpu_temp.py`
-
-```python
-from influxdb import InfluxDBClient
-from influxdb_client import InfluxDBClient as InfluxDBClientV2, Point, WritePrecision
-from influxdb_client.client.write_api import SYNCHRONOUS
-import subprocess
-import time
-
-# -------- LOCAL DB CONFIG --------
-local_client = InfluxDBClient(host='localhost', port=8086)
-local_client.switch_database('mydb')
-
-# -------- CLOUD DB CONFIG --------
-url = "https://YOUR_CLOUD_URL"
-token = "YOUR_TOKEN"
-org = "YOUR_ORG"
-bucket = "mybucket"
-
-cloud_client = InfluxDBClientV2(url=url, token=token)
-cloud_write = cloud_client.write_api(write_options=SYNCHRONOUS)
-
-def get_cpu_temp():
-    temp = subprocess.getoutput("vcgencmd measure_temp")
-    return float(temp.replace("temp=", "").replace("'C", ""))
-
-while True:
-    temp = get_cpu_temp()
-
-    # Local write
-    local_json = [{
-        "measurement": "cpu_temp",
-        "tags": {"host": "raspberrypi"},
-        "fields": {"value": temp}
-    }]
-    local_client.write_points(local_json)
-
-    # Cloud write
-    point = Point("cpu_temp").field("value", temp)
-    cloud_write.write(bucket=bucket, org=org, record=point)
-
-    print(f"Sent: {temp} °C")
-
-    time.sleep(5)
-```
-
-Run:
-
-```bash
-python3 cpu_temp.py
-```
-
----
-
-## 📊 Step 3: Install Grafana on Raspberry Pi
-
-```bash
-sudo apt install -y apt-transport-https software-properties-common
-
-wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-
-echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
-
-sudo apt update
-sudo apt install grafana
-
-Start it:
-
-sudo systemctl start grafana-server
-sudo systemctl enable grafana-server
-```
-
-### Access Grafana
-
-```
-http://<raspberry-pi-ip>:3000
-```
-
-Default login:
-
-* username: admin
-* password: admin
-
----
-
-## 🔗 Add Data Source
-
-### Local InfluxDB (v1.8)
-
-* URL: `http://localhost:8086`
-* Database: `mydb`
-* Query Language: InfluxQL
-
-### Cloud InfluxDB (v2)
-
-* URL: your cloud endpoint
-* Token: your API token
-* Org + Bucket: as configured
-
----
-
-## 📈 Step 4: Dashboard Query
-
-```sql
-SELECT mean("value") FROM "cpu_temp"
-WHERE $timeFilter
-GROUP BY time($__interval)
-```
-
----
-
-## 🎨 Visualization Tips
-
-* Use **Line Graph** for trends
-* Use **Gauge** for current temperature
-* Set unit → **Celsius (°C)**
-* Refresh interval → **5s–10s**
-
----
-
-## 🔁 Optional: Telegraf (Recommended Alternative)
-
-Instead of Python, use Telegraf for automatic metrics collection.
-
-### Install:
-
-```bash
-sudo apt install telegraf
-```
-
-### Example Config:
-
-```toml
-[[inputs.cpu]]
-[[inputs.system]]
-[[inputs.temp]]
-
-[[outputs.influxdb]]
-  urls = ["http://localhost:8086"]
-  database = "mydb"
-
-[[outputs.influxdb_v2]]
-  urls = ["https://YOUR_CLOUD_URL"]
-  token = "YOUR_TOKEN"
-  organization = "YOUR_ORG"
-  bucket = "mybucket"
-```
-
-Start:
-
-```bash
-sudo systemctl start telegraf
-```
-
----
-
-## ⚠️ Notes
-
-* Keep logging interval ≥ 5 seconds (avoid SD card wear)
-* Free cloud tiers may have:
-
-  * Storage limits
-  * Request limits
-* Use retention policies for long-term storage
-
----
-
-## 🚀 Future Improvements
-
-* Add CPU usage, RAM, disk monitoring
-* Set alerts (e.g., temperature > 70°C)
-* Remote dashboard access
-* Dockerize the entire stack
-
----
-
-## 📌 Summary
-
-This project provides:
-
-* Real-time CPU monitoring
-* Local + cloud storage flexibility
-* Clean visualization via Grafana
-
----
-
-## 🧑‍💻 Author
-
-Built for learning IoT monitoring, embedded systems, and time-series data pipelines.
-
+Quick-start guide for headless Raspberry Pi deployment and IoT projects.
