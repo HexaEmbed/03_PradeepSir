@@ -1,61 +1,42 @@
-<mxfile host="app.diagrams.net">
-  <diagram name="Raspberry Pi Monitoring Architecture">
-    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1">
+<mxfile host="Electron">
+  <diagram name="Raspberry Pi Monitoring Architecture" id="0">
+    <mxGraphModel dx="1373" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <!-- Raspberry Pi -->
-        <mxCell id="pi" value="Raspberry Pi&#xa;CPU Temp (vcgencmd)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
-          <mxGeometry x="50" y="200" width="180" height="80" as="geometry"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Raspberry Pi&lt;br&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="50" y="200" as="geometry" />
         </mxCell>
-
-        <!-- Script -->
-        <mxCell id="script" value="Python Script / Telegraf&#xa;Data Collector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
-          <mxGeometry x="260" y="200" width="200" height="80" as="geometry"/>
+        <mxCell id="script" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Python Script / Telegraf&lt;br&gt;Data Collector&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="260" y="200" as="geometry" />
         </mxCell>
-
-        <!-- Local InfluxDB -->
-        <mxCell id="localdb" value="Local InfluxDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
-          <mxGeometry x="520" y="120" width="160" height="70" as="geometry"/>
+        <mxCell id="localdb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Local InfluxDB&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="520" y="120" as="geometry" />
         </mxCell>
-
-        <!-- Cloud InfluxDB -->
-        <mxCell id="clouddb" value="InfluxDB Cloud" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
-          <mxGeometry x="520" y="300" width="160" height="70" as="geometry"/>
+        <mxCell id="clouddb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="InfluxDB Cloud&lt;div&gt;Link&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="520" y="300" as="geometry" />
         </mxCell>
-
-        <!-- Local Grafana -->
-        <mxCell id="localgraf" value="Grafana (Local)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
-          <mxGeometry x="750" y="120" width="160" height="70" as="geometry"/>
+        <mxCell id="localgraf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" value="Grafana (Local)&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="750" y="120" as="geometry" />
         </mxCell>
-
-        <!-- Remote Grafana -->
-        <mxCell id="remotegraf" value="Grafana (Remote)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
-          <mxGeometry x="750" y="300" width="160" height="70" as="geometry"/>
+        <mxCell id="remotegraf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" value="Grafana (Remote)&lt;div&gt;Link&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="750" y="300" as="geometry" />
         </mxCell>
-
-        <!-- Edges -->
         <mxCell id="e1" edge="1" parent="1" source="pi" target="script">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
         <mxCell id="e2" edge="1" parent="1" source="script" target="localdb">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
         <mxCell id="e3" edge="1" parent="1" source="script" target="clouddb">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
         <mxCell id="e4" edge="1" parent="1" source="localdb" target="localgraf">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
         <mxCell id="e5" edge="1" parent="1" source="clouddb" target="remotegraf">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
