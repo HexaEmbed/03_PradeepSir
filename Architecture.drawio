@@ -4,10 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="pi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Raspberry Pi&lt;br&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir/tree/main/RaspberryPi&quot;&gt;Link&lt;/a&gt;" vertex="1">
+        <mxCell id="pi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir/blob/main/README.md&quot;&gt;Raspberry Pi&lt;/a&gt;&lt;div&gt;with&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir/blob/main/README.md&quot;&gt;&lt;br&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir/blob/main/TAILSCALE_VPN.md&quot;&gt;TailScale_VPN&lt;/a&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="180" x="150" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="script" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Python Script / Telegraf&lt;br&gt;Data Collector&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="script" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Python Script / Telegraf&lt;br&gt;Data Collector&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir/blob/main/RaspberryPi/cpu_temp.py&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="200" x="360" y="320" as="geometry" />
         </mxCell>
         <mxCell id="localdb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Local InfluxDB&lt;div&gt;&lt;a href=&quot;https://github.com/HexaEmbed/03_PradeepSir.git&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;" vertex="1">
