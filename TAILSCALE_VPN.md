@@ -161,7 +161,7 @@ With Tailscale, your Raspberry Pi becomes securely accessible from anywhere:
 
 ---
 
-## 🧑‍💻 Author
+## 🧑‍💻 Author: Balai Pandiyan
 
-Balai Pandiyan, Designed for IoT, home labs, and remote monitoring setups.
+Designed for IoT, home labs, and remote monitoring setups.
 
