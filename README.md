@@ -142,10 +142,10 @@ sudo apt update && sudo apt upgrade
 
   * InfluxDB -> Refer: INFLUXDB.md
   * Grafana -> Refer: GRAFANA.md
-  * Tailscale -> TAILSCALE_VPN.md
+  * Tailscale -> Refer: TAILSCALE_VPN.md
 
 ---
 
-## 🧑‍💻 Author
+## 🧑‍💻 Author: Balai Pandiyan
 
 Quick-start guide for headless Raspberry Pi deployment and IoT projects.
