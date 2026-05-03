@@ -1,4 +1,4 @@
-# 🍓 Raspberry Pi Setup Guide (Flash SD Card + India Configuration)
+# 🍓 Raspberry Pi Setup Guide (Flash SD Card + System Configuration)
 
 ## 🚀 Overview
 
