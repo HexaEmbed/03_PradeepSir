@@ -138,8 +138,11 @@ sudo apt update && sudo apt upgrade
 
 * Install tools:
   * Tailscale -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md)
-  * InfluxDB -> Refer: INFLUXDB.md
-  * Grafana -> Refer: GRAFANA.md
+  * InfluxDB -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/InfluxDB.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/InfluxDB.md)
+  * Grafana -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/Grafana.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/Grafana.md)
+
+### Invoke Apllication Code
+   * [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/Execute.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/RaspberryPi/Execute.md)
   
 
 ---
