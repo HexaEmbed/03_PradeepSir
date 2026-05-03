@@ -145,7 +145,5 @@ sudo apt update && sudo apt upgrade
   * Tailscale -> Refer: TAILSCALE_VPN.md
 
 ---
-
-## Author: Balai Pandiyan
-
-Quick-start guide for headless Raspberry Pi deployment and IoT projects.
+##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
+---
