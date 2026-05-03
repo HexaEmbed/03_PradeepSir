@@ -1,4 +1,5 @@
-## Step 1: Install Grafana on Raspberry Pi
+## Install Grafana on Raspberry Pi
+   Execute below steps on Raspberry Pi Terminal
 
 ```bash
 sudo apt install -y apt-transport-https software-properties-common
@@ -54,5 +55,6 @@ Default login:
 * Set alerts (e.g., temperature > 70°C)
 * Remote dashboard access
 * Dockerize the entire stack
-
+---
+##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
 ---
