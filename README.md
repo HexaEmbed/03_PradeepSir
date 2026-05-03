@@ -20,13 +20,10 @@ This guide walks you through preparing a fresh Raspberry Pi setup:
 
 ---
 
-## Step 1: Download Raspberry Pi OS
+## Step 1: Download and Install Raspberry Pi Imager Tool
 
-Download the official tool:
+[RaspberryPi Imager](https://www.raspberrypi.com/software/)
 
-```text
-https://www.raspberrypi.com/software/
-```
 ---
 
 ## Step 2: Flash OS to SD Card
@@ -140,10 +137,10 @@ sudo apt update && sudo apt upgrade
 ```
 
 * Install tools:
-
+  * Tailscale -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md)
   * InfluxDB -> Refer: INFLUXDB.md
   * Grafana -> Refer: GRAFANA.md
-  * Tailscale -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md)
+  
 
 ---
 ##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
