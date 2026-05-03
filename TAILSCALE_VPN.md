@@ -127,6 +127,10 @@ Check status:
 ```bash
 tailscale status
 ```
+or
+```bash
+https://login.tailscale.com/admin/machines
+```
 
 ---
 
