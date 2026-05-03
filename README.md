@@ -9,7 +9,7 @@ This guide walks you through preparing a fresh Raspberry Pi setup:
 * Configure Internet (Wi-Fi or Ethernet)
 ---
 
-## Requirements
+## Pre-Requisite
 
 * Raspberry Pi board
 * MicroSD card (≥16GB recommended)
