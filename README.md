@@ -142,7 +142,7 @@ sudo apt update && sudo apt upgrade
 
   * InfluxDB -> Refer: INFLUXDB.md
   * Grafana -> Refer: GRAFANA.md
-  * Tailscale -> Refer: TAILSCALE_VPN.md
+  * Tailscale -> [https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md](https://github.com/HexaEmbed/RealTimeMonitoringSystem/blob/main/TAILSCALE_VPN.md)
 
 ---
 ##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
