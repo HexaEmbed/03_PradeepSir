@@ -38,6 +38,11 @@ Default login:
 * Database: `mydb`
 * Query Language: InfluxQL
 ---
+### Example Real Time View @ Grafana
+
+[http://100.111.229.36:3000/d/ad9g4mx/cpu-temp?orgId=1&from=now-3h&to=now&timezone=browser&refresh=30s&viewPanel=panel-1](http://100.111.229.36:3000/d/ad9g4mx/cpu-temp?orgId=1&from=now-3h&to=now&timezone=browser&refresh=30s&viewPanel=panel-1)
+
+---
 ##  Notes
 
 * Keep logging interval ≥ 5 seconds (avoid SD card wear)
