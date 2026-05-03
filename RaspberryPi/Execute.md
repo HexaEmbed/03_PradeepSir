@@ -67,7 +67,5 @@ This project provides:
 * Local + cloud storage flexibility
 * Clean visualization via Grafana
 ---
-
-## 🧑‍💻 Author
-
-Built for learning IoT monitoring, embedded systems, and time-series data pipelines.
+##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
+---
