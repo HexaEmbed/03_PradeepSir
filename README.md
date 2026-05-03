@@ -1,6 +1,6 @@
-# 🍓 Raspberry Pi Setup Guide (Flash SD Card + System Configuration)
+# Raspberry Pi Setup Guide (Flash SD Card + System Configuration)
 
-## 🚀 Overview
+## Overview
 
 This guide walks you through preparing a fresh Raspberry Pi setup:
 
@@ -9,7 +9,7 @@ This guide walks you through preparing a fresh Raspberry Pi setup:
 * Configure Internet (Wi-Fi or Ethernet)
 ---
 
-## 📦 Requirements
+## Requirements
 
 * Raspberry Pi board
 * MicroSD card (≥16GB recommended)
@@ -19,7 +19,7 @@ This guide walks you through preparing a fresh Raspberry Pi setup:
 
 ---
 
-## 💿 Step 1: Download Raspberry Pi OS
+## Step 1: Download Raspberry Pi OS
 
 Download the official tool:
 
@@ -28,7 +28,7 @@ https://www.raspberrypi.com/software/
 ```
 ---
 
-## ⚙️ Step 2: Flash OS to SD Card
+## Step 2: Flash OS to SD Card
 
 1. Insert SD card into your computer
 2. Open Raspberry Pi Imager
@@ -48,9 +48,9 @@ https://www.raspberrypi.com/software/
    * Enter Password: eg: password@000
 ---
 
-## 🔐 Enable SSH
+## Enable SSH
 
-* ✅ Enable SSH
+* Enable SSH
 * Enter the command:
   ```text
   sudo raspi-config
@@ -61,9 +61,9 @@ https://www.raspberrypi.com/software/
 
 ---
 
-## 📶 Configure Internet (Wi-Fi or Ethernet)
+## Configure Internet (Wi-Fi or Ethernet)
 
-* ✅ Connect Internet powered Ethernet Cable or Configure wireless LAN
+* Connect Internet Ethernet Cable or Configure wireless LAN
 * Open terminal and run:
   ```text
   sudo raspi-config
@@ -72,7 +72,7 @@ https://www.raspberrypi.com/software/
 * Select your country, enter SSID, and password.
 ---
 
-## 🌐 Step 3: Find Raspberry Pi IP
+## Step 3: Find Raspberry Pi IP
 
 Check from your router OR use:
 
@@ -86,7 +86,7 @@ ping raspberrypi.local
 
 ---
 
-## 🔑 Step 4: Connect via SSH
+## Step 4: Connect via SSH
 
 From your PC:
 
@@ -102,7 +102,7 @@ ssh pi@192.168.x.x
 
 ---
 
-## 🧰 Optional Manual Setup (if needed)
+## Optional Manual Setup (if needed)
 
 ### Set timezone manually
 
@@ -130,7 +130,7 @@ Localisation Options → Keyboard → English (India) or US
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 * Install updates:
 
@@ -146,6 +146,6 @@ sudo apt update && sudo apt upgrade
 
 ---
 
-## 🧑‍💻 Author: Balai Pandiyan
+## Author: Balai Pandiyan
 
 Quick-start guide for headless Raspberry Pi deployment and IoT projects.
