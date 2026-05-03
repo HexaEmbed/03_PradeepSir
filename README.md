@@ -16,6 +16,7 @@ This guide walks you through preparing a fresh Raspberry Pi setup:
 * SD card reader
 * Laptop/PC
 * Internet connection
+* [Complete Setup kit](https://robu.in/product/raspberry-pi-3-model-b-plus-starter-kit)
 
 ---
 
