@@ -1,34 +1,30 @@
-# 🔐 Raspberry Pi Remote Access using Tailscale VPN
+# Raspberry Pi Remote Access using Tailscale VPN
 
-## 🚀 Overview
+## Overview
 
 This guide shows how to securely access your Raspberry Pi from anywhere using a zero-config VPN powered by **Tailscale**.
 
 With this setup, you can:
 
-* 🌍 Access your Raspberry Pi remotely (SSH, Grafana, InfluxDB, etc.)
-* 🔒 Avoid port forwarding and firewall complexity
-* ⚡ Get secure, encrypted connections instantly
+*  Access your Raspberry Pi remotely (SSH, Grafana, InfluxDB, etc.)
+*  Avoid port forwarding and firewall complexity
+*  Get secure, encrypted connections instantly
 
 ---
 
-## 🧠 What is Tailscale?
+## What is Tailscale?
 
 Tailscale is a modern VPN built on WireGuard that creates a secure private network (called a *tailnet*) between your devices.
 
 ---
 
-## 📦 Requirements
-
-* Raspberry Pi with internet access
-* A Tailscale account (Google, GitHub, Microsoft, etc.)
-* Raspberry Pi OS (or any Debian-based OS)
-
+## Pre-Requisite
+* [A Tailscale account](https://tailscale.com/docs/install/linux)
 ---
 
-## ⚙️ Step 1: Install Tailscale
+## Step 1: Install Tailscale on Raspberry Pi
 
-Run the official install script:
+Run the official install script on Raspberry Pi Terminal:
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
@@ -36,7 +32,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 ---
 
-## 🔑 Step 2: Authenticate & Connect
+## Step 2: Authenticate & Connect
 
 Start Tailscale:
 
@@ -54,7 +50,7 @@ Once done, your Raspberry Pi joins your private network.
 
 ---
 
-## 🌐 Step 3: Get Your Pi’s VPN IP
+## Step 3: Get Your Pi’s VPN IP
 
 Check assigned IP:
 
@@ -70,14 +66,14 @@ Example:
 
 ---
 
-## 🔗 Step 4: Access Your Raspberry Pi Remotely
+## Step 4: Access Your Raspberry Pi Remotely
 
 From another device connected to Tailscale:
 
 ### SSH
 
 ```bash
-ssh pi@100.101.102.103
+ssh debian@100.101.102.103
 ```
 
 ### Access services
@@ -87,7 +83,7 @@ ssh pi@100.101.102.103
 
 ---
 
-## 📊 Example Use Case
+## Example Use Case
 
 ```text
 Laptop (Tailscale)
@@ -101,9 +97,9 @@ No port forwarding. No public IP required.
 
 ---
 
-## ⚙️ Optional Configurations
+## Optional Configurations
 
-### 🖥 Enable Tailscale at boot
+### Enable Tailscale at boot
 
 ```bash
 sudo systemctl enable tailscaled
@@ -111,7 +107,7 @@ sudo systemctl enable tailscaled
 
 ---
 
-### 🔐 Enable SSH via Tailscale (no password needed)
+### Enable SSH via Tailscale (no password needed)
 
 ```bash
 sudo tailscale up --ssh
@@ -120,11 +116,11 @@ sudo tailscale up --ssh
 Then connect:
 
 ```bash
-ssh pi@raspberrypi
+ssh debian@raspberrypi
 ```
 ---
 
-## 🧪 Verify Connection
+## Verify Connection
 
 Check status:
 
@@ -134,7 +130,7 @@ tailscale status
 
 ---
 
-## ⚠️ Notes
+## Notes
 
 * Free plan supports up to 100 devices
 * Devices must be logged into same Tailscale account
@@ -142,26 +138,13 @@ tailscale status
 
 ---
 
-## 🧹 Uninstall
+## Uninstall (Do not Execute this step)
 
 ```bash
 sudo tailscale down
 sudo apt remove tailscale
 ```
-
 ---
-
-## 📌 Summary
-
-With Tailscale, your Raspberry Pi becomes securely accessible from anywhere:
-
-* 🔒 Encrypted VPN
-* 🌍 Remote access without port forwarding
-* ⚡ Simple setup in minutes
-
+##### Page Maintained By: [hexaembed@gmail.com](hexaembed@gmail.com)
 ---
-
-## 🧑‍💻 Author: Balai Pandiyan
-
-Designed for IoT, home labs, and remote monitoring setups.
 
